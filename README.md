@@ -23,11 +23,9 @@
 
 - 显卡: 显存 >= 16G (最好24G或者以上)
 - 环境：
-- - python>=3.8
+- - python==3.9
 - - cuda>=11.6, cupti, cuDNN, TensorRT等深度学习环境
-- - pip3 install -r requirements.txt
-其中requirements.txt中的安装包bitsandbytes 建议安装0.41.2.post2这个版本，以前的版本可能会提示报错：
-        bitsandbytes/libbitsandbytes_cpu.so: undefined symbol: cget_col_row_stats
+- - pip install -r requirements.txt
 
 对于下载ChatGLM-6b模型，进入models文件夹，运行`hugging-cli_download.sh`,其脚本内容如下： 
 
