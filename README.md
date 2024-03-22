@@ -29,6 +29,18 @@
 其中requirements.txt中的安装包bitsandbytes 建议安装0.41.2.post2这个版本，以前的版本可能会提示报错：
         bitsandbytes/libbitsandbytes_cpu.so: undefined symbol: cget_col_row_stats
 
+对于下载ChatGLM-6b模型，进入models文件夹，运行`hugging-cli_download.sh`,其脚本内容如下： 
+
+```shell
+mkdir chatglm-6b
+cd chatglm-6b
+
+export HF_ENDPOINT=https://hf-mirror.com
+huggingface-cli download --resume-download THUDM/chatglm-6b --local-dir ./
+
+cd ..
+```
+
 ### 数据预处理
 
 
@@ -48,8 +60,8 @@ python tokenize_dataset_rows.py \
     --jsonl_path data/alpaca_data.jsonl \
     --save_path data/alpaca \
     --max_seq_length 200 \ 
-    --skip_overlength  False
-    --chatglm_path model_path/chatglm
+    --skip_overlength  False \
+    --chatglm_path models/chatglm-6b\
     --version v1                 
     
 ```
@@ -63,20 +75,20 @@ python tokenize_dataset_rows.py \
 ### 训练
 
 ```bash
-python finetune.py \
+nohup python finetune.py \
     --dataset_path data/alpaca \
     --lora_rank 8 \
     --per_device_train_batch_size 6 \
     --gradient_accumulation_steps 1 \
-    --max_steps 52000 \
+    --max_steps 2000 \
     --save_steps 1000 \
     --save_total_limit 2 \
     --learning_rate 1e-4 \
     --fp16 \
     --remove_unused_columns false \
     --logging_steps 50 \
-    --output_dir output
-    --chatglm_path model_path/chat_glm
+    --output_dir output \
+    --chatglm_path models/chatglm-6b > a.log &
 ```
 
 ### 推理

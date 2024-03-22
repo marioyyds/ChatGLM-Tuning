@@ -4,12 +4,13 @@ from transformers import TrainingArguments
 from transformers import Trainer, HfArgumentParser
 from transformers import AutoTokenizer, AutoModel
 from transformers import PreTrainedTokenizerBase
+import os
+# os.environ['CUDA_VISIBLE_DEVICES'] = '3'
 import torch
 import torch.nn as nn
 from peft import get_peft_model, LoraConfig, TaskType
 from dataclasses import dataclass, field
 import datasets
-import os
 
 
 @dataclass

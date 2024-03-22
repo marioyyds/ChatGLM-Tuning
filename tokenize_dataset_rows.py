@@ -61,7 +61,7 @@ def main():
     parser.add_argument("--save_path", type=str, default="data/alpaca")
     parser.add_argument("--max_seq_length", type=int, default=384)
     parser.add_argument("--skip_overlength", type=bool, default=False)
-    parser.add_argument("--chatglm_path", type=str, default='model_path/chatglm')
+    parser.add_argument("--chatglm_path", type=str, default='models/chatglm-6b')
     parser.add_argument("--version", type=str, default='v1')
     args = parser.parse_args()
 

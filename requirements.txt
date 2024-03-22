@@ -1,6 +1,9 @@
+# python 3.9
+
 # int8
-bitsandbytes==0.37.1
-accelerate==0.17.1
+bitsandbytes==0.42.0
+# accelerate==0.17.1
+accelerate
 
 # chatglm
 protobuf>=3.19.5,<3.20.1
@@ -11,5 +14,6 @@ torch>=1.13.1
 tensorboard
 
 # 
-datasets==2.10.1
-git+https://github.com/huggingface/peft.git  # 最新版本 >=0.3.0.dev0
+datasets
+# git+https://github.com/huggingface/peft.git  # 最新版本 >=0.3.0.dev0
+git+https://kkgithub.com/huggingface/peft  # 最新版本 >=0.3.0.dev0

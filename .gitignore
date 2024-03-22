@@ -3,10 +3,17 @@
 models/llama/*
 models/llama-hf/llama-7b/*.bin
 models/pefts/*.bin
+models/chatglm-6b
+models/chatglm-6b-int4
+models/chatglm3-6b
+
+/runs
 
 data/*
 outputs/*
 output/*
+!output/adapter_config.json
+!adapter_model.safetensors
 
 
 
